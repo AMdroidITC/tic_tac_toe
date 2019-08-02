@@ -1,4 +1,5 @@
 import random
+import string
 
 def printe(arr):
     for i in range(0,3):
@@ -46,9 +47,9 @@ def checkWin(arr,i,j,ch):
     if (val == 3):
         return True
 
-    return False##########
+    return False
 
-def sett(arr,i,j,ch):################
+def sett(arr,i,j,ch):
     arr[i][j]=ch
 
 def check2(arr,i,j,ch1,ch2):
@@ -269,9 +270,10 @@ if start==1:
         b = 'X'
         t = '0'
         while True:
-            print("type coordinates for Player 1")
-            y = int(input())
-            g = int(input())
+            inp=input("Type coordinates for Player 1")
+            inp=inp.translate({ord(c): None for c in string.whitespace})
+            y = int(inp[0])
+            g = int(inp[1])
             if(check2(bord,y,g,b,t)):
                 sett(bord,y,g,b)
                 printe(bord)
@@ -285,9 +287,10 @@ if start==1:
         if chi==1:
             break
         while True:
-            print("type coordinates for Player 2")
-            y1 = int(input())
-            g1 = int(input())
+            inp=input("type coordinates for Player 2")
+            inp=inp.translate({ord(c): None for c in string.whitespace})
+            y1 = int(inp[0])
+            g1 = int(inp[1])
             if (check2(bord, y1, g1, b, t)):
                 sett(bord, y1, g1, t)
                 printe(bord)
@@ -309,9 +312,10 @@ else:
     t = '0'
     while full(bord):
         while True:
-            print("PRES COORDINATES PLEASE")
-            x1=int(input())
-            y1=int(input())
+            inp=input("PRES COORDINATES PLEASE")
+            inp=inp.translate({ord(c): None for c in string.whitespace})
+            x1=int(inp[0])
+            y1=int(inp[1])
             ind1 = 0
             if(check2(bord,x1,y1,b,t)):
                 for i in range(0, len(lis2)):
@@ -489,25 +493,4 @@ else:
                             print("I WIN GOODBYE :)")
                             break
                             taxtak=0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
